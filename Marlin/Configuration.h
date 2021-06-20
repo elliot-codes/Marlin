@@ -60,9 +60,11 @@
  * X_CURRENT (no need to setup?)
  * HYBRID_THRESHOLD
  * SENSORLESS_HOMING
+ * Z_MIN_PROBE_PIN
+ * USE_CONTROLLER_FAN
  *  
  * Maybe:
- * LIN_ADVANCE
+ * LIN_ADVANCE (maybe buggy with smart filament sensor)
  * 
  * Todo:
  * Config.ini change (SMART: 2) (No auto save?)
@@ -1068,6 +1070,7 @@
  *      - normally-open switches to 5V and D32.
  */
 //#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN PG5 // SKR 1.2 Pro  PG5 Endstop E2
 
 /**
  * Probe Type
@@ -1840,7 +1843,7 @@
  *   M501 - Read settings from EEPROM. (i.e., Throw away unsaved changes)
  *   M502 - Revert settings to "factory" defaults. (Follow with M500 to init the EEPROM.)
  */
-//#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
+#define EEPROM_SETTINGS     // Persistent storage with M500 and M501
 //#define DISABLE_M503        // Saves ~2700 bytes of PROGMEM. Disable for release!
 #define EEPROM_CHITCHAT       // Give feedback on EEPROM commands. Disable to save PROGMEM.
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
@@ -2098,7 +2101,7 @@
  *
  * :['JAPANESE', 'WESTERN', 'CYRILLIC']
  */
-#define DISPLAY_CHARSET_HD44780 JAPANESE
+#define DISPLAY_CHARSET_HD44780 WESTERN
 
 /**
  * Info Screen Style (0:Classic, 1:Průša)
